@@ -19,7 +19,9 @@ int main()
         j = 1 + rand() % 10;
         printf("How much is %d times %d ? ",i,j);
         scanf("%d",&userInput);
-        printf("Very good!\n");
+        if(userInput == learnMultiplication(i,j)){
+            printf("Very good!\n");
+        }
 
         if(counter == 10)
         break;
@@ -30,7 +32,7 @@ int main()
             scanf("%d",&userInput);
 
             if(userInput == learnMultiplication(i,j)){
-                printf("Very good!");
+                printf("Very good!\n");
                 break;
             }
 
