@@ -15,3 +15,4 @@ In this repo am learning:
 1. C Functions
 2. C Arrays
 3. C Pointers
+4. C Structures, Unions, Bit Manipulations and Enumerations
