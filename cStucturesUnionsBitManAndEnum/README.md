@@ -36,7 +36,7 @@ Stuctures are derived data types - they are constructed using objects of other t
     double hourlySalary;
    };
    ```
-   Contains character array members for the first and last names, an int member for the employee's age, a char member that would contain 'M' or 'F' for the employee's gender ans a double member for the employee's hourly salary.
+   Contains character array members for the first and last names, an int member for the employee's age, a char member that would contain 'M' or 'F' for the employee's gender and a double member for the employee's hourly salary.
 
    A structure cannot contain an instance of itself.eg, a variable of type struct employee cannot be declared in the definition for struct employee. A pointer to struct employee, however, may be included.
 
@@ -55,3 +55,28 @@ Stuctures are derived data types - they are constructed using objects of other t
    + Using the size operator to determine the size of a structure variable.
 
    **Initializing Structures**
+
+Structures can be initialized using initializer lists as with arrays.To initialize a structure follow the variable name in the definition with an equals sign and a brace-enclosed, comma-seperated list of initializers. __*Example:*__
+```
+struct card aCard = {"Three", "Hearts"};
+```
+creates variable aCard to be of type struct card and initializes member face to "Three" and member suit to "Hearts". If there are fewer initializers in the list than members in the structure, the remaining members are automatically initialized to 0 (or NULL if the member is a pointer). Structure variables defined outside a function definition (i.e externally) are initialized to 0 or NULL if they are explicitly initialized in the external definition. Structure variables may also be initialized in assignment statements by assigning a structure variable of the same type, or by assigning values to the individual members of the structure.
+
+**Accessing Members of Structures**
+
+Two operators are used to access structures:
+
++ The *structure member operator* (.) also called the *dot operator*.
++ The *structure pointer operator* (->) also called the *arrow operator*.
+
+The structure member operator accesses a structure member via the structure variable name. To print member suit of structure variable aCard, use the statement
+```
+printf("%s",aCard.suit);//displays "Hearts"
+```
+Structure pointer operator accesses a structure member via a pointer to the structure. Assume that the pointer cardPtr has been declared to point to struct card ans that the address aCard has been assigned to cardPtr. To print member suit of structure aCard with pointer cardPtr, use the statement
+```
+printf("%s",cardPtr->suit);//displays "Hearts"
+```
+The expression cardPtr->suit is equivalent to (*cardPtr).suit, which dereferences the pointer and accesses the member suit using the sutructure member operator. The parentheses are needed here because the structure member operator (.) has higher precedence than the dereferencing operator (*). The structure pointer operator and structure member operator, along with parentheses (for calling functions) and brackets ([]) used for array subscripting, have the highest operator precedence and associate from left to right.
+
+**Using Structures with Functions**
